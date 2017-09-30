@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+
+<faces-config
+	version="2.1"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd"
+>
+	<managed-bean>
+		<managed-bean-name>riepilogoDomandeBean</managed-bean-name>
+		<managed-bean-class>com.domande.beans.RiepilogoDomandeBean</managed-bean-class>
+		<managed-bean-scope>view</managed-bean-scope>
+		<managed-property>
+			<property-name>pieModel1</property-name>
+			<property-class>org.primefaces.model.chart.PieChartModel</property-class>
+			<null-value />
+		</managed-property>
+		<managed-property>
+			<property-name>horizontalBarModel</property-name>
+			<property-class>org.primefaces.model.chart.HorizontalBarChartModel</property-class>
+			<null-value />
+		</managed-property>
+		<managed-property>
+			<property-name>domande</property-name>
+			<property-class>java.util.List</property-class>
+			<null-value />
+		</managed-property>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>domandaBean</managed-bean-name>
+		<managed-bean-class>com.domande.beans.DomandaBean</managed-bean-class>
+		<managed-bean-scope>view</managed-bean-scope>
+		<managed-property>
+			<property-name>apertura</property-name>
+			<property-class>java.lang.String</property-class>
+			<null-value />
+		</managed-property>
+		<managed-property>
+			<property-name>idDomanda</property-name>
+			<property-class>int</property-class>
+			<null-value />
+		</managed-property>
+		<managed-property>
+			<property-name>valore</property-name>
+			<property-class>int</property-class>
+			<null-value />
+		</managed-property>
+	</managed-bean>
+	<lifecycle>
+		<phase-listener>com.liferay.faces.util.lifecycle.DebugPhaseListener</phase-listener>
+	</lifecycle>
+</faces-config>

@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+
+
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<h:head />
+	<h:body>
+		<h:form id="form">
+			<p:growl id="growl" showDetail="true" />
+			<div class="ui-fluid">
+			<p:panelGrid columns="2" style="width:100%" columnClasses="ui-grid-col-6,ui-grid-col-6" layout="grid" styleClass="ui-panel-grid-blank">
+				<p:chart type="pie" model="#{riepilogoDomandeBean.pieModel1}"
+					style="width:400px;height:300px;margin: auto; display: table; border:none">
+					<p:ajax event="itemSelect"
+						listener="#{riepilogoDomandeBean.itemSelect}" update=":form:tab" />
+				</p:chart>
+				
+				<p:chart type="bar" model="#{riepilogoDomandeBean.horizontalBarModel}"
+					style="width:400px;height:300px;margin: auto; display: table; border:none">
+					<p:ajax event="itemSelect"
+						listener="#{riepilogoDomandeBean.itemSelect}" update=":form:tab" />
+				</p:chart>
+			</p:panelGrid>
+			</div>
+			<p:panel style="margin:auto">
+				<p:dataTable var="par" id="tab" value="#{riepilogoDomandeBean.domande}">
+					<f:facet name="header">
+						Dettaglio domande
+					</f:facet>
+				    <p:column headerText="Id">
+				        <h:outputText value="#{par.idDomanda}" />
+				    </p:column>
+				 
+				    <p:column headerText="Stato">
+				        <h:outputText value="#{par.apertura}" />
+				    </p:column>
+				 
+				    <p:column headerText="Valore">
+				        <h:outputText value="#{par.valore}" />
+				    </p:column>
+				</p:dataTable>
+			</p:panel>
+		</h:form>
+	</h:body>
+</f:view>
